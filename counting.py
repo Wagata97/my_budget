@@ -2,41 +2,43 @@ choose = {1: 'PAYMENT', 2: 'PAYCHECK', 3: 'BALANCE'}
 
 
 def main():
-    global user_choose
-    print("""
-        Hello in App My Budget.
-        Please choose option which you are interested:
-        1 - payment 
-        2 - paycheck
-        3 - balance""")
-
-    my_balance = 0
-
     while True:
-        choose = input('> ')
-        if not choose.isdecimal():
-            print('Please, enter a number')
+        print("""
+               Hello in App My Budget.
+               Please choose option which you are interested:
+               1 - payment 
+               2 - paycheck
+               3 - balance""")
+        user_choose = int(input('My choose > '))
+        if user_choose == 1:
+            income()
+        elif user_choose == 2:
+            expense()
+        elif user_choose == 3:
+            balance()
         else:
-            user_choose = int(choose)
-            break
+            print('incorrect data. Try again')
+            continue
 
-    if choose == 1:
-        income()
-    elif choose == 2:
-        expense()
-    elif choose == 3:
-        balance()
-    else:
-        print('incorrect data. Try again')
+
+my_balance = 0
+
 
 def income():
-    pass
+    global my_balance
+    payment = int(input('Your income: '))
+    my_balance += payment
+    print(my_balance)
+
 
 def expense():
-    pass
+    global my_balance
+    paycheck = int(input('Your expense: '))
+    my_balance += paycheck
+
 
 def balance():
-    pass
+    print(my_balance)
 
 
 if __name__ == "__main__":
