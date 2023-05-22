@@ -1,3 +1,6 @@
+choose = {1: 'PAYMENT', 2: 'PAYCHECK', 3: 'BALANCE'}
+
+
 def main():
     global user_choose
     print("""
@@ -17,16 +20,23 @@ def main():
             user_choose = int(choose)
             break
 
-    if user_choose == 1:
-        x = int(input('your income: '))
-        my_balance += x
-    elif user_choose == 2:
-        x = int(input('your expense: '))
-        my_balance -= x
-    elif user_choose == 3:
-        print('your balance: {}'.format(my_balance))
+    if choose == 1:
+        income()
+    elif choose == 2:
+        expense()
+    elif choose == 3:
+        balance()
     else:
         print('incorrect data. Try again')
+
+def income():
+    pass
+
+def expense():
+    pass
+
+def balance():
+    pass
 
 
 if __name__ == "__main__":
